@@ -8,11 +8,15 @@ import Logout from './components/logout/Logout';
 import Register from './components/register/Register';
 import Summary from './components/summary/Summary';
 import Admin from './components/admin/Admin';
-
+import {withTranslation} from 'react-i18next';
+import Kyc from './components/kyc/Kyc';
 
 class App extends Component {
   constructor(props) {
     super(props);
+    const { i18n } = this.props;
+    i18n.changeLanguage('en');
+
     this.state={
       isLoggedIn: false
     }
@@ -37,6 +41,7 @@ class App extends Component {
               <Route path='/login' component={()=><Login vaidateUser={this.vaidateUser}/>} />
               <Route path='/logout' component={Logout} />
               <Route path='/reg' component={Register} />
+              <Route path='/kyc' component={Kyc} />
               <Route path='/summary' component={Summary} />
               <Route path='/admin' component={Admin} />
             </Switch>
@@ -48,4 +53,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withTranslation()(App);

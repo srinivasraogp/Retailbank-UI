@@ -25,6 +25,9 @@ default: ['en'],
 },
 
 debug: true,
+backend : {
+    loadPath:`${window.location.origin + window.location.pathname}/locales/{{lng}}/{{ns}}.json`
+},
 
 interpolation: {
 

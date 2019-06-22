@@ -13,16 +13,16 @@ class Summary extends Component {
   }
   componentDidMount() {
     this.getData().then(response => {
+        
       this.setState({ summarylist: [response.data] });
       console.log(this.state.summarylist)
     });
   }
   getData = () => {
-    const res = localStorage.getItem('res');
-    console.log(res);
+    const userId = localStorage.getItem('userId');
     const{post} =this.state;
     return new Promise((resolve, reject) => {
-      axios.get(`http://13.235.0.72:9091/students/ingit/summary/${res}`).then(function (response) {
+      axios.get(`http://10.117.189.202:7777/retailbank/ingretail/summary/${userId}`).then(function (response) {
         resolve(response);
       }).catch(function (error) {
         reject(error);
@@ -31,21 +31,25 @@ class Summary extends Component {
   }
    render() {
     return(
-      <div className="container bor">
+      <div className="bor">
+          <button className="kyc"><Link to="/kyc">KYC Details</Link></button>
           <table className="table table-hover tab">
             <thead>
-             <h1 className="sum">Summary Page</h1>
-             <tr><td>ID</td><td>Student ID</td><td>Course Name</td><td>Course ID</td></tr>
+             <h1 className="sum">SummaryPage</h1>
+             <tr><td>User ID</td><td>First Name</td><td>Last Name</td><td>Account Type</td><td>Account Number</td><td>Account Balance</td></tr>
+             
             </thead>
       <tbody>
           {
           this.state.summarylist.map((item, i) => {
                                 return (
                                     <tr key={i}>
-                                       <td >{item.id}</td>
-                                        <td>{item.studentId}</td>
-                                        <td>{item.courseName}</td>
-                                        <td>{item.courseId}</td>
+                                       <td >{item.userId}</td>
+                                        <td>{item.firstName}</td>
+                                        <td>{item.lastName}</td>
+                                        <td>{item.accountType}</td>
+                                        <td>{item.accountNumber}</td>
+                                        <td>{item.balance}</td>
                                     </tr>
                                     
                                 )
