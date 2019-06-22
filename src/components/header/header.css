@@ -1,0 +1,36 @@
+.im{
+    height:140px;
+    width:700px;
+}
+.drp{
+    margin-left:10px;
+    color:#ff6200;
+    padding:10px;
+    padding-left: 10px;
+    padding-right: 40px;
+    
+}
+.out{
+    float:right;
+    margin-right:40px;
+    margin-top:45px;
+    height:40px;
+    width:40px;
+}
+.link1{
+    color:white;
+    font-weight:bold;
+    font-style:italic;
+    font-size:18px;
+}
+.link2{
+    color:white;
+    font-weight:bold;
+    font-style:italic;
+    margin-left:20px;
+    font-size:18px;
+}
+.bt{
+    background-color:#ff6200;
+    color:white 
+}
